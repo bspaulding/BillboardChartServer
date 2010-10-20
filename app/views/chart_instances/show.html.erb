@@ -1,3 +1,6 @@
+<% content_for :title do %>
+<%=h @chart_instance.chart.title %> - <%=h @chart_instance.date.strftime("%B %d %Y") %>
+<% end %>
 <% content_for :head do %>
 <%= javascript_include_tag 'jquery-1.4.3.min.js', 'audio_player.js' %>
 <script type="text/javascript">
