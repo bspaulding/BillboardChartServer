@@ -1,0 +1,30 @@
+<h1>Listing chart_instance_items</h1>
+
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Artist</th>
+    <th>Album</th>
+    <th>Image url</th>
+    <th>Position</th>
+    <th>Chart instance</th>
+  </tr>
+
+<% @chart_instance_items.each do |chart_instance_item| %>
+  <tr>
+    <td><%=h chart_instance_item.title %></td>
+    <td><%=h chart_instance_item.artist %></td>
+    <td><%=h chart_instance_item.album %></td>
+    <td><%=h chart_instance_item.image_url %></td>
+    <td><%=h chart_instance_item.position %></td>
+    <td><%=h chart_instance_item.chart_instance_id %></td>
+    <td><%= link_to 'Show', chart_instance_item %></td>
+    <td><%= link_to 'Edit', edit_chart_instance_item_path(chart_instance_item) %></td>
+    <td><%= link_to 'Destroy', chart_instance_item, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New chart_instance_item', new_chart_instance_item_path %>

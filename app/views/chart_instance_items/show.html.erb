@@ -1,0 +1,33 @@
+<p>
+  <b>Title:</b>
+  <%=h @chart_instance_item.title %>
+</p>
+
+<p>
+  <b>Artist:</b>
+  <%=h @chart_instance_item.artist %>
+</p>
+
+<p>
+  <b>Album:</b>
+  <%=h @chart_instance_item.album %>
+</p>
+
+<p>
+  <b>Image url:</b>
+  <%=h @chart_instance_item.image_url %>
+</p>
+
+<p>
+  <b>Position:</b>
+  <%=h @chart_instance_item.position %>
+</p>
+
+<p>
+  <b>Chart instance:</b>
+  <%=h @chart_instance_item.chart_instance_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_chart_instance_item_path(@chart_instance_item) %> |
+<%= link_to 'Back', chart_instance_items_path %>

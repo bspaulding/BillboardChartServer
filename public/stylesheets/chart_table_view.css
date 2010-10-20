@@ -1,0 +1,100 @@
+html, body {
+	margin: 0px;
+	padding: 0px;
+}
+
+body {
+	font-family: Verdana;
+	font-size: 0.9em;
+}
+
+h1 {
+	margin: 0px;
+	padding: 0px;
+}
+
+h2 {
+	margin: 0px;
+	padding: 0px;
+}
+
+.chart_table {
+	margin: 0px;
+	padding: 0px;
+	
+	border-top: 1px solid #CCC;
+}
+
+.chart_table_item {
+	margin: 0px;
+	padding: 0px;
+	
+	width: 100%;
+	height: 60px;
+	
+	float: left;
+	
+	border-bottom: 1px solid #CCC;
+}
+
+.icon_container {
+	-webkit-perspective: 1000;
+}
+
+.icon {
+	margin: 0px 10px 0px 0px;
+	padding: 0px;
+	
+	width: 60px;
+	height: 60px;
+	
+	float: left;
+	
+	position: relative;
+	top: 0px;
+	left: 0px;
+	
+	-webkit-transform-style: preserve-3d;
+	-webkit-transition: 0.5s;
+}
+
+.icon_face {
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	
+	width: 60px;
+	height: 60px;
+	
+	-webkit-backface-visibility: hidden;
+}
+
+.front {
+	z-index: 2;
+}
+
+.back {
+	z-index: 1;
+	-webkit-transform: rotateY(180deg);
+}
+
+.item_short_description {
+	margin: 0px;
+	padding: 2px 0px 0px 5px;
+
+	line-height: 135%;
+}
+
+.title {
+	font-weight: bold;
+	font-size: 1em;
+}
+
+.artist {
+	font-size: 0.9em;
+}
+
+.album {
+	font-style: italic;
+	font-size: 0.9em;
+}

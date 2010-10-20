@@ -1,0 +1,16 @@
+<h1><%=h @chart.title %></h1>
+
+<p>
+	<strong>URL:</strong> <%=h @chart.url %>
+</p><p>
+	<strong>Chart Type:</strong> <%=h @chart.chart_type %>
+</p><p>
+	<%= link_to 'Edit', edit_chart_path(@chart) %> |
+	<%= link_to 'Back', charts_path %>
+</p>
+
+<ul>
+<% @chart.chart_instances.each do |ci| %>
+<li><%= link_to ci.date.strftime("%B %d, %Y"), ci %></li>
+<% end %>
+</ul>

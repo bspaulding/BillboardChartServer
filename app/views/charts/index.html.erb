@@ -1,0 +1,5 @@
+<h1>Billboard Charts</h1>
+
+<% @charts.each do |chart| -%>
+<p><strong><%=h link_to chart.title, chart %></strong></p>
+<% end -%>

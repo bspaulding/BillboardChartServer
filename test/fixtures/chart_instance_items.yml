@@ -1,0 +1,23 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  title: MyString
+  artist: MyString
+  album: MyString
+  image_url: MyString
+  position: 1
+  chart_instance_id: 1
+  last_weeks_position: 1
+  weeks_on_chart: 1
+  peak_position: 1
+
+two:
+    title: MyString
+    artist: MyString
+    album: MyString
+    image_url: MyString
+    position: 1
+    chart_instance_id: 1
+    last_weeks_position: 1
+    weeks_on_chart: 1
+    peak_position: 1
