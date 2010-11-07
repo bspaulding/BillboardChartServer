@@ -9,7 +9,14 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100911210710) do
+ActiveRecord::Schema.define(:version => 20101107023728) do
+
+  create_table "artists", :force => true do |t|
+    t.string   "name"
+    t.string   "billboard_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "chart_instance_items", :force => true do |t|
     t.string   "title"
@@ -28,6 +35,7 @@ ActiveRecord::Schema.define(:version => 20100911210710) do
     t.string   "itunesPreviewURL"
     t.string   "itunesArtworkURL30"
     t.string   "itunesArtworkURL60"
+    t.integer  "artist_id"
   end
 
   create_table "chart_instances", :force => true do |t|
@@ -43,6 +51,8 @@ ActiveRecord::Schema.define(:version => 20100911210710) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "chart_type"
+    t.integer  "size"
+    t.integer  "items_per_page"
   end
 
 end

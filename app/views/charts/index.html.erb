@@ -1,5 +1,7 @@
 <h1>Billboard Charts</h1>
 
+<%= link_to "New Chart", new_chart_path %> | <%= link_to "Update Data", update_all_chart_data_path %>
+
 <% @charts.each do |chart| -%>
 <p><strong><%=h link_to chart.title, chart %></strong></p>
 <% end -%>

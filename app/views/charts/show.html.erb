@@ -11,6 +11,6 @@
 
 <ul>
 <% @chart.chart_instances.each do |ci| %>
-<li><%= link_to ci.date.strftime("%B %d, %Y"), ci %></li>
+<li><%= link_to ci.date.strftime("%B %d, %Y"), ci %> (<%= link_to "JSON", url_for( :controller => :chart_instances, :action => :show, :id => ci.id, :format => :json ) %>)</li>
 <% end %>
 </ul>

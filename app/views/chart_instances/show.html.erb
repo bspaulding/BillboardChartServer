@@ -51,8 +51,10 @@ $(document).ready(function() {
 	</div>
 	<div class="item_short_description">
 		<span class="title"><%= truncate(item.title, 33) %></span><br/>
-		<span class="artist"><%= truncate(item.artist, 33) %></span><br/>
-		<span class="album"><%= truncate(item.album, 33) %></span>
+		<span class="artist"><%= truncate(item.artist.name, 33) %></span><br/>
+		<% if item.chart_instance.chart.chart_type == "Singles" %>
+			<span class="album"><%= truncate(item.album, 33) %></span>
+		<% end %>
 		<audio	id="<%= id_for_title(item.title) %>_audio"
 				class="audio_preview"
 				src="<%= item.itunesPreviewURL %>">

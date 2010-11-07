@@ -1,4 +1,5 @@
 class ChartsController < ApplicationController
+	
   # GET /charts
   # GET /charts.xml
   def index
@@ -71,6 +72,18 @@ class ChartsController < ApplicationController
       end
     end
   end
+  
+	# GET /charts/update
+	def update_all
+		begin
+			Chart.update_chart_data
+			flash[:notice] = "Chart Data Updated Successfully."
+		rescue StandardError => e
+			flash[:error] = e.message
+		end
+		redirect_to charts_path
+	end
+
 
   # DELETE /charts/1
   # DELETE /charts/1.xml

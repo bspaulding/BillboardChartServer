@@ -14,6 +14,6 @@ class Chart < ActiveRecord::Base
   end
   
   def update_chart_data
-    BillboardScraper.new(:chart => self).scrape
+    BillboardScraper.scrape_chart(self)
   end
 end

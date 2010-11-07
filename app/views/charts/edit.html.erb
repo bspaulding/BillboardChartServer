@@ -15,6 +15,12 @@
 	<%= f.label :chart_type %> <%= f.select :chart_type, Chart::CHART_TYPES %>
   </p>
   <p>
+  	<%= f.label :size %> <%= f.text_field :size, :size => 5 %>
+  </p>
+  <p>
+  	<%= f.label :items_per_page %> <%= f.text_field :items_per_page, :size => 5 %>
+  </p>
+  <p>
     <%= f.submit 'Update' %>
   </p>
 <% end %>
