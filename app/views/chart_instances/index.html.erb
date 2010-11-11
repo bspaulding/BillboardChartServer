@@ -1,22 +1,7 @@
-<h1>Listing chart_instances</h1>
-
-<table>
-  <tr>
-    <th>Date</th>
-    <th>Chart</th>
-  </tr>
+<h1><%= @chart.title %></h1>
 
 <% @chart_instances.each do |chart_instance| %>
-  <tr>
-    <td><%=h chart_instance.date %></td>
-    <td><%=h chart_instance.chart_id %></td>
-    <td><%= link_to 'Show', chart_instance %></td>
-    <td><%= link_to 'Edit', edit_chart_instance_path(chart_instance) %></td>
-    <td><%= link_to 'Destroy', chart_instance, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
+<p>
+	<%= link_to chart_instance.date.strftime("%B %d, %Y"), chart_chart_instance_path(chart_instance.chart, chart_instance) %>
+</p>
 <% end %>
-</table>
-
-<br />
-
-<%= link_to 'New chart_instance', new_chart_instance_path %>

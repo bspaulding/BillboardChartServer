@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101107023728) do
+ActiveRecord::Schema.define(:version => 20101107181100) do
 
   create_table "artists", :force => true do |t|
     t.string   "name"
@@ -51,8 +51,6 @@ ActiveRecord::Schema.define(:version => 20101107023728) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "chart_type"
-    t.integer  "size"
-    t.integer  "items_per_page"
   end
 
 end

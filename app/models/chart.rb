@@ -3,7 +3,7 @@ class Chart < ActiveRecord::Base
   CHART_TYPE_ALBUMS = "Albums"
   CHART_TYPES = [CHART_TYPE_SINGLES, CHART_TYPE_ALBUMS]
   
-  has_many :chart_instances
+  has_many :chart_instances, :dependent => :destroy
   
   validates_presence_of :title
   validates_format_of :url, :with => /\A(http|https)\:\/\/[a-zA-Z0-9_\-\.]+\.(com|COM)\/[a-zA-Z0-9_#?&=\/\-\.]+\z/
@@ -15,5 +15,9 @@ class Chart < ActiveRecord::Base
   
   def update_chart_data
     BillboardScraper.scrape_chart(self)
+  end
+  
+  def latest_instance
+  	self.chart_instances.first # Default scope should handle this: find(:all, :order => "date DESC")
   end
 end

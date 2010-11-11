@@ -2,6 +2,7 @@ class ChartsController < ApplicationController
 	
   # GET /charts
   # GET /charts.xml
+  # GET /charts.json
   def index
     @charts = Chart.all
 
@@ -14,12 +15,18 @@ class ChartsController < ApplicationController
 
   # GET /charts/1
   # GET /charts/1.xml
+  # GET /charts/1.json
   def show
-    @chart = Chart.find(params[:id])
-
+		begin
+			@chart = Chart.find(params[:id])
+		rescue ActiveRecord::RecordNotFound		
+	    @chart = Chart.find_by_title(params[:id].titleize)
+	  end
+		
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @chart }
+      format.json { render :json => @chart }
     end
   end
 

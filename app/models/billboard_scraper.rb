@@ -10,8 +10,10 @@ class BillboardScraper
   def self.scrape
 		
 		chart_date = ""
+		paginated_urls = []
 		@agent.get(@chart[:url]) do |page|
     	chart_date = Date.parse( page.search('#chart-date').text.strip )
+			paginated_urls = page.search('.pagination-group a').collect {|link| link['href'] }.uniq
   	end
 		    
     ci = @chart.chart_instances.find_by_date(chart_date)
@@ -21,11 +23,10 @@ class BillboardScraper
       ci.save!
   		
   		# Get ChartInstanceItems
-			(@chart.size / @chart.items_per_page).times do |n|
-		    begin_at = @chart.items_per_page * n + 1
+			paginated_urls.each do |paginated_url|
 		  	
 		  	# We must scrape each paginated page to retrieve the whole list.
-		    @agent.get("#{@chart.url}?begin=#{begin_at}") do |page|
+		    @agent.get(paginated_url) do |page|
 		      page.search('#chart-list>.chart-item-wrapper').each do |chart_item_wrapper|
 						cii = ChartInstanceItem.new
 						

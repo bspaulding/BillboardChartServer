@@ -1,11 +1,11 @@
 ActionController::Routing::Routes.draw do |map|
   map.root :controller => :charts
-  
-  map.resources :chart_instance_items
-
-  map.resources :chart_instances
-
+ 
 	map.update_all_chart_data '/charts/update', :controller => :charts, :action => :update_all
 
-  map.resources :charts
+  map.resources :charts do |charts|
+	  charts.resources :chart_instances do |chart_instances|
+	  	chart_instances.resources :chart_instance_items
+	  end
+  end
 end
