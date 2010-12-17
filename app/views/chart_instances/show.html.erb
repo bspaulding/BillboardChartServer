@@ -50,7 +50,7 @@ $(document).ready(function() {
 		</div>
 	</div>
 	<div class="item_short_description">
-		<span class="title"><%= truncate(item.title, 33) %></span><br/>
+		<span class="title"><%= truncate(item.title, 25) %></span><br/>
 		<span class="artist"><%= truncate(item.artist.name, 33) %></span><br/>
 		<% if item.chart_instance.chart.chart_type == "Singles" %>
 			<span class="album"><%= truncate(item.album, 33) %></span>
