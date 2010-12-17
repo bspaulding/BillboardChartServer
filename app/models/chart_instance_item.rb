@@ -46,16 +46,18 @@ class ChartInstanceItem < ActiveRecord::Base
   def get_itunes_data
     itunesResult = itunes_result
 		
-		if self.single?
-	    self.itunesTrackViewURL	= itunesResult["trackViewUrl"]
-    elsif self.album?
-	    self.itunesTrackViewURL	= itunesResult["collectionViewUrl"]
-  	end
-  	  
-    self.itunesArtworkURL30  = itunesResult["artworkUrl30"]
-    self.itunesArtworkURL60  = itunesResult["artworkUrl60"]
-    self.itunesArtworkURL100 = itunesResult["artworkUrl100"]
-    self.itunesPreviewURL    = itunesResult["previewUrl"]
+		unless itunesResult.nil?
+			if self.single?
+		    self.itunesTrackViewURL	= itunesResult["trackViewUrl"]
+	    elsif self.album?
+		    self.itunesTrackViewURL	= itunesResult["collectionViewUrl"]
+	  	end
+	  	  
+	    self.itunesArtworkURL30  = itunesResult["artworkUrl30"]
+	    self.itunesArtworkURL60  = itunesResult["artworkUrl60"]
+	    self.itunesArtworkURL100 = itunesResult["artworkUrl100"]
+	    self.itunesPreviewURL    = itunesResult["previewUrl"]
+		end
   end
   
   def itunes_result
