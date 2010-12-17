@@ -87,7 +87,7 @@ class ChartsController < ApplicationController
 			flash[:notice] = "Chart Data Updated Successfully."
 			redirect_to charts_path
 		rescue StandardError => e
-			flash[:error] = e.message + e.backtrace
+			flash[:error] = "#{e.message}</p><p style='color:red;'>#{e.backtrace}"
 			redirect_to root_path
 		end
 	end
