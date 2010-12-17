@@ -14,7 +14,10 @@
 <p style="color: green"><%= flash[:notice] %></p>
 <% end -%>
 <% if flash[:error] -%>
+<div id="flash" class="error">
+<h1>Error</h1>
 <p style="color: red"><%= flash[:error] %></p>
+</div>
 <% end -%>
 
 <%= yield %>
