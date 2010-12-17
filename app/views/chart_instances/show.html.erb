@@ -42,7 +42,7 @@ $(document).ready(function() {
 	<div class="icon_container" id="<%= id_for_title(item.title) %>_icon">
 		<div class="icon">
 			<div class="icon_face front">
-				<%= image_tag(item.itunesArtworkURL60, :width => '60px', :height => '60px') %><br/>
+				<%= image_tag(item.itunesArtworkURL60 || 'no_image.png', :width => '60px', :height => '60px') %><br/>
 			</div>
 			<div class="icon_face back">
 				<%= image_tag "icon_back.png" %>
@@ -57,7 +57,7 @@ $(document).ready(function() {
 		<% end %>
 		<audio	id="<%= id_for_title(item.title) %>_audio"
 				class="audio_preview"
-				src="<%= item.itunesPreviewURL %>">
+				src="<%= item.itunesPreviewURL || '' %>">
 		</audio>
 	</div>
 </div>
