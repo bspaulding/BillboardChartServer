@@ -66,7 +66,7 @@ class ChartInstanceItem < ActiveRecord::Base
   end
   
   def get_any_itunes_result(words = self.title.split(' '))
-  	if words.count == 0
+  	if words.size == 0
   		return nil
   	end
   
