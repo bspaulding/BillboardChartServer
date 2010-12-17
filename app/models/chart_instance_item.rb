@@ -3,10 +3,12 @@ class ChartInstanceItem < ActiveRecord::Base
 	belongs_to :artist
   
   validates_presence_of [:chart_instance, :title, :artist]
-  validates_format_of :itunesTrackViewURL, :with => /\A(http|https)\:\/\/[a-zA-Z0-9\_\-\.]+\.(com|COM)\/[a-zA-Z0-9_#?&=\/\-\.]+\z/
+  validates_format_of :itunesTrackViewURL, :with => /\A(http|https)\:\/\/[a-zA-Z0-9\_\-\.]+\.(com|COM)\/[a-zA-Z0-9_#?&=\/\-\.]+\z/,
+  										:allow_blank => true
   validates_format_of :itunesPreviewURL, :with => /\A(http|https)\:\/\/[a-zA-Z0-9_#?&=\/\-\.]+\.(m4a|m4p|m4v)\z/, :allow_blank => true
   validates_format_of [:image_url, :itunesArtworkURL100, :itunesArtworkURL30, :itunesArtworkURL60], 
-                      :with => /\A(http|https)\:\/\/[a-zA-Z0-9_#?&=\/\-\.]+\.(jpg|JPG|jpeg|JPEG|gif|GIF|png|PNG)\z/
+                      :with => /\A(http|https)\:\/\/[a-zA-Z0-9_#?&=\/\-\.]+\.(jpg|JPG|jpeg|JPEG|gif|GIF|png|PNG)\z/,
+   										:allow_blank => true
   validates_numericality_of [:position, :weeks_on_chart, :peak_position], :greater_than => 0
   validates_numericality_of :last_weeks_position, :greater_than => 0, :allow_nil => true
   
