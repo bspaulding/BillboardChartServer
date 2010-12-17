@@ -6,7 +6,7 @@ Vagrant::Config.run do |config|
 
   config.vm.provisioner = :chef_solo
   config.chef.cookbooks_path = "/Users/brads/Documents/Development/cookbooks"
-  %w[apt openssl mysql mysql::server apache2 ruby rubygems rails].each do |recipe|
+  %w[apt openssl apache2 ruby rubygems rails].each do |recipe| #mysql mysql::server
     config.chef.add_recipe recipe
   end
 
