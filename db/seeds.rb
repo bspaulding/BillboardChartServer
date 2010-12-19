@@ -5,3 +5,5 @@
 #   
 #   cities = City.create([{ :name => 'Chicago' }, { :name => 'Copenhagen' }])
 #   Major.create(:name => 'Daley', :city => cities.first)
+
+Chart.create!( :title => "Hot 100", :url => "http://www.billboard.com/charts/hot-100", :chart_type => "Singles" )

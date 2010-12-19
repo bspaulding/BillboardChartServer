@@ -21,6 +21,6 @@ module ApplicationHelper
   end
   
   def encode_uri_params(*params)
-    params[0].each.collect {|param| "#{param[0]}=#{CGI.escape(param[1])}"}.join("&")
+    params[0].collect {|param| "#{param[0]}=#{CGI.escape(param[1])}"}.join("&")
   end
 end
