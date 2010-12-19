@@ -2,43 +2,17 @@
 <%=h @chart_instance.chart.title %> - <%=h @chart_instance.date.strftime("%B %d %Y") %>
 <% end %>
 <% content_for :head do %>
-<%= javascript_include_tag 'jquery-1.4.3.min.js', 'audio_player.js' %>
-<script type="text/javascript">
-$(document).ready(function() {
-	$(".icon_container").click(function(eventObject) {
-		icon_id = $(eventObject.currentTarget).attr('id');
-		icon_div = $(eventObject.currentTarget).children();
-		if(icon_div.css('-webkit-transform') != 'none') 
-			icon_div.css('-webkit-transform', '');
-		else
-			icon_div.css('-webkit-transform', 'rotateY(180deg)');
-		
-		audio_id = icon_id.substring(0, icon_id.length - 4) + "audio";
-		audio_element = $('#' + audio_id)[0];
-		if(audio_element.paused) {
-			if(audio_element.currentTime == 0.0)
-				audio_element.volume = 0.0;
-			audio_element.play();
-			audio_element.addEventListener('ended', function(event) {
-				icon_id = $(event.target).attr('id').substring(0, icon_id.length - 4) + "icon";
-				icon_div = $('#' + icon_id).children('.icon');
-				icon_div.css('-webkit-transform', '');
-			});
-			audio_element.addEventListener('timeupdate', updateVolume);
-		} else {
-			audio_element.pause();
-			audio_element.removeEventListener('ended');
-		}
-	});
-});
-</script>
+<%= javascript_include_tag 'MOKit', 'jquery-1.4.3.min.js', 'audio_player.js', 'chart_table_view.js', 'http://platform.twitter.com/widgets.js' %>
 <% end %>
 <h1><%=h @chart_instance.chart.title %></h1>
 <h2><%=h @chart_instance.date.strftime("%B %d %Y") %></h2>
 
 <div class="chart_table">
-<% @chart_instance.chart_instance_items.each do |item| %>
+<% @chart_instance.chart_instance_items[0..9].each do |item| %>
 <div class="chart_table_item" id="<%= id_for_title(item.title) %>">
+	<div class="position">
+		<%= item.position %>
+	</div>
 	<div class="icon_container" id="<%= id_for_title(item.title) %>_icon">
 		<div class="icon">
 			<div class="icon_face front">
@@ -49,7 +23,7 @@ $(document).ready(function() {
 			</div>
 		</div>
 	</div>
-	<div class="item_short_description">
+	<div class="item_short_description" id="<%= id_for_title(item.title) %>_description">
 		<span class="title"><%= truncate(item.title, 25) %></span><br/>
 		<span class="artist"><%= truncate(item.artist.name, 33) %></span><br/>
 		<% if item.chart_instance.chart.chart_type == "Singles" %>
@@ -60,6 +34,12 @@ $(document).ready(function() {
 				src="<%= item.itunesPreviewURL || '' %>">
 		</audio>
 	</div>
+</div>
+<div class="chart_table_item_details inactive" id="<%= id_for_title(item.title) %>_details">
+	<ul>
+		<li><%= link_to "View In iTunes", item.itunesTrackViewURL %></li>
+		<li><%= twitter_share_button(item.itunesTrackViewURL, "#{item.artist.name} - '#{item.title}' is ##{item.position} on Billboard's #{item.chart.title}") %></li>
+	</ul>
 </div>
 <% end %>
 </div>

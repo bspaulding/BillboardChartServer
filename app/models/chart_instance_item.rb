@@ -12,6 +12,8 @@ class ChartInstanceItem < ActiveRecord::Base
   validates_numericality_of [:position, :weeks_on_chart, :peak_position], :greater_than => 0
   validates_numericality_of :last_weeks_position, :greater_than => 0, :allow_nil => true
   
+  delegate :chart, :to => :chart_instance
+  
 	default_scope :order => "position ASC"
   
   before_validation_on_create :get_itunes_data
