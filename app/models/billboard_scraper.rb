@@ -1,3 +1,5 @@
+require 'mechanize'
+
 class BillboardScraper
   
   def self.scrape_chart(chart)
