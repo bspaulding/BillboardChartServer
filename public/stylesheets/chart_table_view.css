@@ -141,7 +141,7 @@ h2 {
 	background: #333;
 	
 	-webkit-transition-property: top, height;
-	-webkit-transition-duration: 0.5s;
+	-webkit-transition-duration: 0.25s;
 	-webkit-transition-timing-function: ease;
 }
 
