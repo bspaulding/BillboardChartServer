@@ -1,2 +1,2 @@
-require File.dirname(__FILE__) + '/config/environment'
-run ActionController::Dispatcher.new
+require ::File.expand_path('../config/environment',  __FILE__)
+run BillboardChartServer::Application
