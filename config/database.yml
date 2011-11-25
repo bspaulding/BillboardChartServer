@@ -15,6 +15,11 @@ test:
   pool: 5
   timeout: 5000
 
+travis:
+  adapter: sqlite3
+  database: ":memory:"
+  timeout: 500
+
 production:
   adapter: sqlite3
   database: db/production.sqlite3
