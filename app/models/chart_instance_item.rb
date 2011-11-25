@@ -16,7 +16,7 @@ class ChartInstanceItem < ActiveRecord::Base
   
 	default_scope :order => "position ASC"
   
-  before_validation_on_create :get_itunes_data
+  before_validation :get_itunes_data, :on => :create
   
   def position=(new_position)
     self[:position] = new_position.to_i
