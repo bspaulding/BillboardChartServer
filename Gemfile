@@ -6,6 +6,7 @@ gem "hoe", "2.3.3"
 gem "nokogiri", "1.4.3.1"
 
 gem "sqlite3", :groups => [:development, :test]
+gem "pg", :groups => [:production]
 
 group :development do
   gem "heroku"
