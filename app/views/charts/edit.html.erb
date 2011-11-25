@@ -1,7 +1,7 @@
 <h1>Editing chart</h1>
 
 <%= form_for(@chart) do |f| %>
-  <%= f.error_messages %>
+  <%= @chart.errors.full_messages %>
 
   <p>
     <%= f.label :title %><br />
