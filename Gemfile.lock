@@ -11,6 +11,8 @@ GEM
     activeresource (2.3.9)
       activesupport (= 2.3.9)
     activesupport (2.3.9)
+    factory_girl (2.3.1)
+      activesupport
     hoe (2.3.3)
       rake (>= 0.8.7)
       rubyforge (>= 1.0.4)
@@ -35,6 +37,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  factory_girl
   hoe (= 2.3.3)
   mechanize (= 1.0.0)
   nokogiri (= 1.4.3.1)

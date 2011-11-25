@@ -18,13 +18,13 @@
     <td><%=h chart_instance_item.image_url %></td>
     <td><%=h chart_instance_item.position %></td>
     <td><%=h chart_instance_item.chart_instance_id %></td>
-    <td><%= link_to 'Show', chart_instance_item %></td>
-    <td><%= link_to 'Edit', edit_chart_instance_item_path(chart_instance_item) %></td>
-    <td><%= link_to 'Destroy', chart_instance_item, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%= link_to 'Show', chart_chart_instance_chart_instance_item_path(:id => chart_instance_item.id, :chart_instance_id => chart_instance_item.chart_instance.id, :chart_id => chart_instance_item.chart_instance.chart.id) %></td>
+    <td><%= link_to 'Edit', edit_chart_chart_instance_chart_instance_item_path(:id => chart_instance_item.id, :chart_instance_id => chart_instance_item.chart_instance.id, :chart_id => chart_instance_item.chart_instance.chart.id) %></td>
+    <td><%= link_to 'Destroy', chart_chart_instance_chart_instance_item_path(:id => chart_instance_item.id, :chart_instance_id => chart_instance_item.chart_instance.id, :chart_id => chart_instance_item.chart_instance.chart.id), :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New chart_instance_item', new_chart_instance_item_path %>
+<%= link_to 'New chart_instance_item', new_chart_chart_instance_chart_instance_item_path(:chart_instance_id => @chart_instance.id, :chart_id => @chart.id) %>

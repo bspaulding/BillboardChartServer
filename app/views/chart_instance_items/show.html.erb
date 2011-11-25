@@ -29,5 +29,5 @@
 </p>
 
 
-<%= link_to 'Edit', edit_chart_instance_item_path(@chart_instance_item) %> |
-<%= link_to 'Back', chart_instance_items_path %>
+<%= link_to 'Edit', edit_chart_chart_instance_chart_instance_item_path(:id => @chart_instance_item, :chart_instance_id => @chart_instance_item.chart_instance.id, :chart_id => @chart_instance_item.chart_instance.chart.id) %> |
+<%= link_to 'Back', chart_chart_instance_chart_instance_items_path(:chart_instance_id => @chart_instance_item.chart_instance.id, :chart_id => @chart_instance_item.chart_instance.chart.id) %>
