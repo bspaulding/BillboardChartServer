@@ -1,1 +1,1 @@
-rvm use ree@billboardchartserver --create
+rvm use 1.9.2@billboardchartserver --create
