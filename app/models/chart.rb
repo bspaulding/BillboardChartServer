@@ -18,6 +18,6 @@ class Chart < ActiveRecord::Base
   end
   
   def latest_instance
-  	self.chart_instances.first # Default scope should handle this: find(:all, :order => "date DESC")
+  	self.chart_instances.order("date DESC").first
   end
 end
