@@ -22,9 +22,9 @@ FactoryGirl.define do
 
     title "A Song Title"
     album "An Album Title"
-    position { (0..100).to_a[rand(100)] }
-    last_weeks_position { (0..100).to_a[rand(100)] }
-    weeks_on_chart { (0..100).to_a[rand(100)] }
-    peak_position { (0..100).to_a[rand(100)] }
+    position { (1..100).to_a[rand(99)] }
+    last_weeks_position { (1..100).to_a[rand(99)] }
+    weeks_on_chart { (1..20).to_a[rand(19)] }
+    peak_position { (1..100).to_a[rand(99)] }
   end
 end

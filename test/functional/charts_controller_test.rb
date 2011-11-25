@@ -25,23 +25,25 @@ class ChartsControllerTest < ActionController::TestCase
   end
 
   test "should show chart" do
-    get :show, :id => charts(:one).to_param
+    get :show, :id => FactoryGirl.create(:chart).to_param
     assert_response :success
   end
 
   test "should get edit" do
-    get :edit, :id => charts(:one).to_param
+    get :edit, :id => FactoryGirl.create(:chart).to_param
     assert_response :success
   end
 
   test "should update chart" do
-    put :update, :id => charts(:one).to_param, :chart => { }
+    put :update, :id => FactoryGirl.create(:chart).to_param, :chart => { }
     assert_redirected_to chart_path(assigns(:chart))
   end
 
   test "should destroy chart" do
+    chart = FactoryGirl.create(:chart)
+    
     assert_difference('Chart.count', -1) do
-      delete :destroy, :id => charts(:one).to_param
+      delete :destroy, :id => chart.to_param
     end
 
     assert_redirected_to charts_path
