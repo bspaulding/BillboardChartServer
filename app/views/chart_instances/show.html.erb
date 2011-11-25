@@ -24,10 +24,10 @@
 		</div>
 	</div>
 	<div class="item_short_description" id="<%= id_for_title(item.title) %>_description">
-		<span class="title"><%= truncate(item.title, 25) %></span><br/>
-		<span class="artist"><%= truncate(item.artist.name, 33) %></span><br/>
+		<span class="title"><%= truncate(item.title, :length => 25) %></span><br/>
+		<span class="artist"><%= truncate(item.artist.name, :length => 33) %></span><br/>
 		<% if item.chart_instance.chart.chart_type == "Singles" %>
-			<span class="album"><%= truncate(item.album, 33) %></span>
+			<span class="album"><%= truncate(item.album, :length => 33) %></span>
 		<% end %>
 		<audio	id="<%= id_for_title(item.title) %>_audio"
 				class="audio_preview"
