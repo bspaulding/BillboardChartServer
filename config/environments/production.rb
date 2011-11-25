@@ -10,7 +10,7 @@ config.action_controller.perform_caching             = true
 config.action_view.cache_template_loading            = true
 
 # Set the offset folder, since we're publishing to a sub-uri
-config.action_controller.relative_url_root           = "/billboardchartserver"
+# config.action_controller.relative_url_root           = "/billboardchartserver"
 
 # See everything in the log (default is :info)
 # config.log_level = :debug
