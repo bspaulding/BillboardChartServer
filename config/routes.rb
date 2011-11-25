@@ -1,11 +1,11 @@
-ActionController::Routing::Routes.draw do |map|
-  map.root :controller => :charts
- 
-	map.update_all_chart_data '/charts/update', :controller => :charts, :action => :update_all
+BillboardChartServer::Application.routes.draw do
+  match '/' => 'charts#index'
 
-  map.resources :charts do |charts|
-	  charts.resources :chart_instances do |chart_instances|
-	  	chart_instances.resources :chart_instance_items
-	  end
+  match '/charts/update' => 'charts#update_all', :as => :update_all_chart_data
+
+  resources :charts do
+    resources :chart_instances do
+      resources :chart_instance_items
+    end
   end
 end
